@@ -5,8 +5,8 @@ fetch("https://api.github.com/users/LslyKng/repos")
   })
   .then(function(repos) {
     var reposList = document.querySelector("#repos-list");
-    var reposCountItem = document.querySelector("#repos-count");
 
+    var reposCountItem = document.querySelector("#repos-count");
     reposCountItem.innerText = repos.length;
 
     repos.forEach(function(repo) {

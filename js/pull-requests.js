@@ -3,33 +3,34 @@ fetch("https://api.github.com/repos/Codeyourfuture/js-exercises/pulls")
     return info.json();
   })
   .then(function(pulls) {
-    var allPulls = document.querySelector("#pull-requests-list");
-    pulls.forEach(function(pullRequests) {
-      var PR = document.createElement("li");
-      PR.innerText = pullRequests.name;
-      allPulls.appendChild(PR);
+    var pullsList = document.querySelector("#pull-requests-list");
+
+    pulls.forEach(function(pullAll) {
+      var PR = document.createElement("a");
+      PR.innerText = pullAll.title;
+
+      pullsList.appendChild(PR);
     });
-    console.log(pulls);
   });
 
-//  fetch("https://api.github.com/users/LslyKng/repos")
+// fetch("https://api.github.com/users/LslyKng/pulls")
 //   .then(function(data) {
 //     return data.json();
 //   })
-//   .then(function(repos) {
-//     var reposList = document.querySelector("#repos-list");
-//     var reposCountItem = document.querySelector("#repos-count");
+//   .then(function(pullRequests) {
+//     var pullList = document.querySelector(".js-scroll-trigger");
 
-//     reposCountItem.innerText = repos.length;
-
-//     repos.forEach(function(repo) {
+//     pullRequests.forEach(function(PR) {
 //       var itemLink = document.createElement("a");
-//       itemLink.setAttribute("href", repo.html_url);
-//       itemLink.innerText = repo.name;
+//       itemLink.setAttribute(
+//         "href",
+//         www.github.com / repos / Codeyourfuture / js - exercises / pulls
+//       );
+//       itemLink.innerText = PR.name;
 
 //       var listItem = document.createElement("li");
 //       listItem.appendChild(itemLink);
 
-//       reposList.appendChild(listItem);
+//       // pullList.appendChild(pullRequests);
 //     });
 //   });
