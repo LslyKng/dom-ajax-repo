@@ -2,35 +2,16 @@ fetch("https://api.github.com/repos/Codeyourfuture/js-exercises/pulls")
   .then(function(info) {
     return info.json();
   })
-  .then(function(pulls) {
+  .then(function(pull) {
     var pullsList = document.querySelector("#pull-requests-list");
 
-    pulls.forEach(function(pullAll) {
+    pull.forEach(function(pullAll) {
       var PR = document.createElement("a");
+      PR.setAttribute("href", pullAll.html_url);
       PR.innerText = pullAll.title;
-
       pullsList.appendChild(PR);
+
+      // var list = document.createElement("li");
+      // list.appendChild();
     });
   });
-
-// fetch("https://api.github.com/users/LslyKng/pulls")
-//   .then(function(data) {
-//     return data.json();
-//   })
-//   .then(function(pullRequests) {
-//     var pullList = document.querySelector(".js-scroll-trigger");
-
-//     pullRequests.forEach(function(PR) {
-//       var itemLink = document.createElement("a");
-//       itemLink.setAttribute(
-//         "href",
-//         www.github.com / repos / Codeyourfuture / js - exercises / pulls
-//       );
-//       itemLink.innerText = PR.name;
-
-//       var listItem = document.createElement("li");
-//       listItem.appendChild(itemLink);
-
-//       // pullList.appendChild(pullRequests);
-//     });
-//   });
